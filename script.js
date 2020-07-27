@@ -10,7 +10,8 @@ const questions = [
 
 function printQuestion(q){
     $("#question").text(q.question);
-    let qList = $("#answers-list");
+    var qList = $("#answers-list");
+    qList.text("");
     q.answers.forEach(ans => {
         let currentAns = $("<li>");
         currentAns.text(ans);
