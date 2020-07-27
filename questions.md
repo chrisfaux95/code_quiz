@@ -38,14 +38,14 @@ This is just a list of the included questions and possible answers.
     C. ~~
     D. !!
 
-### 7.  
-    A.
-    B.
-    C.
-    D.
+### 7. Which of the following is not equivalent to a boolean value of True?
+    A. 0
+    B. -1
+    C. []
+    D. "null"
 
 ### 8.  
-    A.
+    A. 
     B.
     C.
     D.
