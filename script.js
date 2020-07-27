@@ -5,6 +5,12 @@ const questions = [
         "<!-- This is a comment. -->",
         "#This is a comment.",
         "\"This is a comment.\""
+    ]},
+    {question: "How would you create a variable with the value of 5?", answers: [
+        "var x = 5;",
+        "x === 5;",
+        "variable x = 5;",
+        "v x == 5;"
     ]}
 ]
 
@@ -20,8 +26,17 @@ function printQuestion(q){
     });
 }
 
-printQuestion(questions[0])
+var currentQuestion = 0;
+printQuestion(questions[0]);
 
+$("#next-question").on("click", function(){
+    currentQuestion++;
+    if(currentQuestion >= questions.length){
+        currentQuestion = 0;
+    }
+    // console.log(currentQuestion);
+    printQuestion(questions[currentQuestion]);
+})
 //function to shuffle the questions:
 //from: https://stackoverflow.com/a/12646864/13871979
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
