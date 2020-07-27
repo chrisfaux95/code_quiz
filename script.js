@@ -8,7 +8,18 @@ const questions = [
     ]}
 ]
 
+function printQuestion(q){
+    $("#question").text(q.question);
+    let qList = $("#answers-list");
+    q.answers.forEach(ans => {
+        let currentAns = $("<li>");
+        currentAns.text(ans);
+        qList.append(currentAns);
+        console.log(ans);
+    });
+}
 
+printQuestion(questions[0])
 
 //function to shuffle the questions:
 //from: https://stackoverflow.com/a/12646864/13871979
