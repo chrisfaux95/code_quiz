@@ -1,3 +1,13 @@
+const questions = [
+    {question: "Which of the following is a correct way to format comments in Javascript?",
+    answers: [
+        "//This is a comment.",
+        "<!-- This is a comment. -->",
+        "#This is a comment.",
+        "\"This is a comment.\""
+    ]}
+]
+
 
 
 //function to shuffle the questions:
