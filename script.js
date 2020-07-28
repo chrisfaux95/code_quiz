@@ -64,22 +64,27 @@ const questions = [
             "[str];"]
     },
     {
-        question:"What would the result of \"pizza\".indexOf(\"z\") be?",
-        answers:[
-            "2","3","4","-1"
+        question: "What would the result of \"pizza\".indexOf(\"z\") be?",
+        answers: [
+            "2", "3", "4", "-1"
         ]
     }
 
 ]
-
+/*
+Prints the given question to the question box,
+and creates the buttons for the possible answers.
+*/
 function printQuestion(q) {
     $("#question").text(q.question);
     var qList = $("#answers-list");
     qList.text("");
     q.answers.forEach(ans => {
-        let currentAns = $("<li>");
+        let listElement = $("<li>");
+        let currentAns = $("<button>");
         currentAns.text(ans);
-        qList.append(currentAns);
+        listElement.appendTo(qList);
+        listElement.append(currentAns);
         // console.log(ans);
     });
 }
