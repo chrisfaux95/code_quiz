@@ -78,8 +78,8 @@ and creates the buttons for the possible answers.
 function printQuestion(q) {
     let currentQ = $("#question")
     currentQ.text(q.question);
-    currentQ.attr("data-question", q.question)
-    console.log(currentQ.attr("data-question"))
+    currentQ.attr("data-question", q.question);
+    console.log(currentQ.attr("data-question"));
     var qList = $("#answers-list");
     qList.empty();
     q.answers.forEach(ans => {
