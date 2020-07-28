@@ -85,6 +85,7 @@ function printQuestion(q) {
         let currentAns = $("<button>");
         currentAns.text(ans);
         currentAns.addClass("list-group-item list-group-item-action list-group-item-info");
+        currentAns.attr("data-answer", ans)
         currentAns.appendTo(qList);
         // listElement.appendTo(qList);
         // listElement.append(currentAns);
