@@ -82,23 +82,15 @@ function printQuestion(q) {
     console.log(currentQ.attr("data-question"));
     var qList = $("#answers-list");
     qList.empty();
-    q.answers.forEach(ans => {
-        // let listElement = $("<li>");
-        // listElement.addClass("list-group-item")
+    let answersList = [...q.answers];
+    shuffleArray(answersList);
         let currentAns = $("<button>");
         currentAns.text(ans);
         currentAns.addClass("btn btn-primary btn-block answer-button");
-        currentAns.attr("data-answer", ans)
-        // console.log(currentAns.attr("data-answer"))
         currentAns.appendTo(qList);
-        // listElement.appendTo(qList);
-        // listElement.append(currentAns);
-        // listElement.append($("<br>"));
-        // console.log(ans);
     });
     $(".answer-button").on("click",function(){
-        // console.log($(this).attr("data-answer"));
-        console.log($(this).text())
+        console.log(checkAnswer(q, $(this).text()));
     });
 }
 //setting up initial question
