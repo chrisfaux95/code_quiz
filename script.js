@@ -78,14 +78,14 @@ and creates the buttons for the possible answers.
 function printQuestion(q) {
     $("#question").text(q.question);
     var qList = $("#answers-list");
-    qList.text("");
+    qList.empty();
     q.answers.forEach(ans => {
         // let listElement = $("<li>");
         // listElement.addClass("list-group-item")
         let currentAns = $("<button>");
         currentAns.text(ans);
         currentAns.addClass("list-group-item list-group-item-action list-group-item-info");
-        currentAns.appendTo(qList)
+        currentAns.appendTo(qList);
         // listElement.appendTo(qList);
         // listElement.append(currentAns);
         // listElement.append($("<br>"));
