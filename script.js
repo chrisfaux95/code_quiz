@@ -130,11 +130,6 @@ function initializeQuiz(){
     printQuestion(mixedQList[currentQuestion]);
 }
 
-
-
-
-
-
 //function to shuffle the questions:
 //from: https://stackoverflow.com/a/12646864/13871979
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
