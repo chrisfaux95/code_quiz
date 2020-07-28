@@ -103,17 +103,10 @@ function printQuestion(q) {
     });
 }
 //setting up initial question
-var currentQuestion = 0;
-printQuestion(questions[0]);
+// var currentQuestion = 0;
+// printQuestion(questions[0]);
 //Creating an Event Listener to go through all of the questions.
-$("#next-question").on("click", function () {
-    currentQuestion++;
-    if (currentQuestion >= questions.length) {
-        currentQuestion = 0;
-    }
-    // console.log(currentQuestion);
-    printQuestion(questions[currentQuestion]);
-});
+
 
 //checks if the answer is correct
 function checkAnswer(q, a) {
@@ -121,13 +114,22 @@ function checkAnswer(q, a) {
 }
 
 //creates the intial state for the quiz
-function initializeQuiz() {
+function initializeQuiz(qlist) {
     //Make a copy of the list of questions and shuffle it.
-    var mixedQList = [...questions];
+    var mixedQList = qlist;
     shuffleArray(mixedQList);
 
     var currentQIndex = 0;
-    printQuestion(mixedQList[currentQuestion]);
+    printQuestion(mixedQList[currentQIndex]);
+    $("#next-question").on("click", function () {
+        currentQIndex++;
+        if (currentQIndex >= questions.length) {
+            shuffleArray(mixedQList);
+            currentQIndex = 0;
+        }
+        // console.log(currentQuestion);
+        printQuestion(questions[currentQIndex]);
+    });
 }
 
 /*function to shuffle the questions:
