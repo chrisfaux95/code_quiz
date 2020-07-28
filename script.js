@@ -80,14 +80,15 @@ function printQuestion(q) {
     var qList = $("#answers-list");
     qList.text("");
     q.answers.forEach(ans => {
-        let listElement = $("<li>");
+        // let listElement = $("<li>");
+        // listElement.addClass("list-group-item")
         let currentAns = $("<button>");
         currentAns.text(ans);
-        currentAns.addClass("btn btn-primary rounded");
-
-        listElement.appendTo(qList);
-        listElement.append(currentAns);
-        listElement.append($("<br>"));
+        currentAns.addClass("list-group-item list-group-item-action list-group-item-info");
+        currentAns.appendTo(qList)
+        // listElement.appendTo(qList);
+        // listElement.append(currentAns);
+        // listElement.append($("<br>"));
         // console.log(ans);
     });
 }
