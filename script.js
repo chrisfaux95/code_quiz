@@ -83,8 +83,11 @@ function printQuestion(q) {
         let listElement = $("<li>");
         let currentAns = $("<button>");
         currentAns.text(ans);
+        currentAns.addClass("btn btn-primary rounded");
+
         listElement.appendTo(qList);
         listElement.append(currentAns);
+        listElement.append($("<br>"));
         // console.log(ans);
     });
 }
