@@ -39,25 +39,25 @@ This is just a list of the included questions and possible answers.
     D. !!
 
 ### 7. Which of the following is not equivalent to a boolean value of True?
-    A. 0
+    A. ""
     B. -1
     C. []
-    D. "null"
+    D. {}
 
-### 8.  
-    A. 
-    B.
-    C.
-    D.
+### 8. How would you print "Hello World!" to the console?
+    A. console.log("Hello World!");
+    B. print("Hello World!");
+    C. printToConsole("Hello World!");
+    D. console("Hello World!");
 
-### 9.  
-    A.
-    B.
-    C.
-    D.
+### 9. Which of the following methods would turn the string str into an array of characters?
+    A. str.split("");
+    B. str.toArray();
+    C. str.slice();
+    D. [str];
       
-### 10.  
-    A.
-    B.
-    C.
-    D.
+### 10. What would the result of "pizza".indexOf("z") be?;
+    A. 2
+    B. 3
+    C. 4
+    D. -1
