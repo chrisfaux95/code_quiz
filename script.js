@@ -98,7 +98,7 @@ function printQuestion(q) {
         currentAns.appendTo(qList);
     });
     //creates event listeners for each button with the ability to check their answer.
-    $(".answer-button").on("click",function(){
+    $(".answer-button").on("click", function () {
         console.log(checkAnswer(q, $(this).text()));
     });
 }
@@ -116,12 +116,12 @@ $("#next-question").on("click", function () {
 });
 
 //checks if the answer is correct
-function checkAnswer(q,a){
+function checkAnswer(q, a) {
     return q.answers[0] === a;
 }
 
 //creates the intial state for the quiz
-function initializeQuiz(){
+function initializeQuiz() {
     //Make a copy of the list of questions and shuffle it.
     var mixedQList = [...questions];
     shuffleArray(mixedQList);
