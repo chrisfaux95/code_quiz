@@ -1,3 +1,4 @@
+/* here is the array of quiz questions */
 const questions = [
     {
         question: "Which of the following is a correct way to format comments in Javascript?",
@@ -71,24 +72,32 @@ const questions = [
     }
 
 ]
+//setup variables:
+
+//FUNCTIONS:
 /*
 Prints the given question to the question box,
 and creates the buttons for the possible answers.
 */
 function printQuestion(q) {
+    //set the current question to the header
     let currentQ = $("#question")
     currentQ.text(q.question);
-    currentQ.attr("data-question", q.question);
-    console.log(currentQ.attr("data-question"));
+    //grab the list destination and empty it
     var qList = $("#answers-list");
     qList.empty();
+    //create a copy of list of possible answers and randomize the order
     let answersList = [...q.answers];
     shuffleArray(answersList);
+    /*creates a button for each answer with
+    with bootstrap classes and appends it to the answers list*/
+    answersList.forEach(ans => {
         let currentAns = $("<button>");
         currentAns.text(ans);
         currentAns.addClass("btn btn-primary btn-block answer-button");
         currentAns.appendTo(qList);
     });
+    //creates event listeners for each button with the ability to check their answer.
     $(".answer-button").on("click",function(){
         console.log(checkAnswer(q, $(this).text()));
     });
@@ -96,7 +105,7 @@ function printQuestion(q) {
 //setting up initial question
 var currentQuestion = 0;
 printQuestion(questions[0]);
-
+//Creating an Event Listener to go through all of the questions.
 $("#next-question").on("click", function () {
     currentQuestion++;
     if (currentQuestion >= questions.length) {
@@ -105,6 +114,21 @@ $("#next-question").on("click", function () {
     // console.log(currentQuestion);
     printQuestion(questions[currentQuestion]);
 });
+
+//checks if the answer is correct
+function checkAnswer(q,a){
+    return q.answers[0] === a;
+}
+
+//creates the intial state for the quiz
+function initializeQuiz(){
+    //Make a copy of the list of questions and shuffle it.
+    var mixedQList = [...questions];
+    shuffleArray(mixedQList);
+
+    var currentQIndex = 0;
+    printQuestion(mixedQList[currentQuestion]);
+}
 
 
 
