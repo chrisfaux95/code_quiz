@@ -1,20 +1,78 @@
 const questions = [
-    {question: "Which of the following is a correct way to format comments in Javascript?",
-    answers: [
-        "//This is a comment.",
-        "<!-- This is a comment. -->",
-        "#This is a comment.",
-        "\"This is a comment.\""
-    ]},
-    {question: "How would you create a variable with the value of 5?", answers: [
-        "var x = 5;",
-        "x === 5;",
-        "variable x = 5;",
-        "v x == 5;"
-    ]}
+    {
+        question: "Which of the following is a correct way to format comments in Javascript?",
+        answers: [
+            "//This is a comment.",
+            "<!-- This is a comment. -->",
+            "#This is a comment.",
+            "\"This is a comment.\""
+        ]
+    },
+    {
+        question: "How would you create a variable with the value of 5?", answers: [
+            "var x = 5;",
+            "x === 5;",
+            "variable x = 5;",
+            "v x == 5;"]
+    },
+    {
+        question: "What would \"alphabet[5]\" result in?",
+        answers: ["b",
+            "a",
+            "NULL",
+            "e"]
+    },
+    {
+        question: "Which of these is not a valid way to generate a random integer between 1-10?",
+        answers: ["Math.ceil(Math.random() * 11);",
+            "Math.floor(Math.random() * 10 + 1);",
+            "Math.ceil(Math.random() * 10);",
+            "Math.floor(Math.random() * 11);"]
+    },
+    {
+        question: "Which operator returns the remainder after division?",
+        answers: ["%",
+            "&",
+            "/",
+            "!"
+        ]
+    },
+    {
+        question: "Which of the following is the symbol for OR?",
+        answers: ["||",
+            "&&",
+            "~~",
+            "!!"]
+    },
+    {
+        question: "Which of the following is not equivalent to a Boolean value of True?",
+        answers: ["\"\"", "-1", "[]", "{}"]
+    },
+    {
+        question: "How would you print \"Hello World!\" to the console?",
+        answers: ["console.log(\"Hello World!\");",
+            "print (\"Hello World!\")",
+            "printToConsole(\"Hello World!\");",
+            "console(\"Hello World!\");"
+        ]
+    },
+    {
+        question: "Which of the following methods would turn the string str into an array of characters?",
+        answers: ["str.split(\"\");",
+            "str.toArray();",
+            "str.slice();",
+            "[str];"]
+    },
+    {
+        question:"What would the result of \"pizza\".indexOf(\"z\") be?",
+        answers:[
+            "2","3","4","-1"
+        ]
+    }
+
 ]
 
-function printQuestion(q){
+function printQuestion(q) {
     $("#question").text(q.question);
     var qList = $("#answers-list");
     qList.text("");
@@ -22,16 +80,16 @@ function printQuestion(q){
         let currentAns = $("<li>");
         currentAns.text(ans);
         qList.append(currentAns);
-        console.log(ans);
+        // console.log(ans);
     });
 }
 
 var currentQuestion = 0;
 printQuestion(questions[0]);
 
-$("#next-question").on("click", function(){
+$("#next-question").on("click", function () {
     currentQuestion++;
-    if(currentQuestion >= questions.length){
+    if (currentQuestion >= questions.length) {
         currentQuestion = 0;
     }
     // console.log(currentQuestion);
