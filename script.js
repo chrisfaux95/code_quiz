@@ -89,14 +89,19 @@ function printQuestion(q) {
         currentAns.text(ans);
         currentAns.addClass("btn btn-primary btn-block answer-button");
         currentAns.attr("data-answer", ans)
+        // console.log(currentAns.attr("data-answer"))
         currentAns.appendTo(qList);
         // listElement.appendTo(qList);
         // listElement.append(currentAns);
         // listElement.append($("<br>"));
         // console.log(ans);
     });
+    $(".answer-button").on("click",function(){
+        // console.log($(this).attr("data-answer"));
+        console.log($(this).text())
+    });
 }
-
+//setting up initial question
 var currentQuestion = 0;
 printQuestion(questions[0]);
 
@@ -107,7 +112,13 @@ $("#next-question").on("click", function () {
     }
     // console.log(currentQuestion);
     printQuestion(questions[currentQuestion]);
-})
+});
+
+
+
+
+
+
 //function to shuffle the questions:
 //from: https://stackoverflow.com/a/12646864/13871979
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
