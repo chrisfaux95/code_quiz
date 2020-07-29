@@ -105,7 +105,7 @@ function printQuestion(q, qList) {
     // Creates event listeners for each button with the ability to check their answer.
     $(".answer-button").on("click", function () {
         var isCorrect = checkAnswer(q, $(this).text());
-        console.log(isCorrect);
+        // console.log(isCorrect);
         if (isCorrect) {
             correctAnswer();
         } else {
@@ -114,6 +114,7 @@ function printQuestion(q, qList) {
         setScore();
         nextQuestion(q, qList);
     });
+    startTimer();
 }
 
 
@@ -122,15 +123,16 @@ function checkAnswer(q, a) {
     return q.answers[0] === a;
 }
 
-
-function incorrectAnswer() {
-    score--;
-    timeLeft -= 5;
+//Function for answer results
+function answerResults(correct) {
+    if (correct) {
+        score++;
+    } else {
+        score--;
+        timeLeft -= 5;
+    }
 }
 
-function correctAnswer() {
-    score++;
-}
 
 /* Sets the next asked question to
 the next question in the list */
