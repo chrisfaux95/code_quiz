@@ -119,6 +119,8 @@ function initializeQuiz(qlist) {
     var mixedQList = qlist;
     shuffleArray(mixedQList);
 
+    $("#question-box").removeClass("invisible")
+
     var currentQIndex = 0;
     printQuestion(mixedQList[currentQIndex]);
     $("#next-question").on("click", function () {
@@ -141,3 +143,15 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+function runQuiz(qList){
+    var score = 0;
+    //create inital state:
+    initializeQuiz(qList);
+
+}
+
+$("#quiz-start").on("click",function(){
+    runQuiz(questions);
+});
+
