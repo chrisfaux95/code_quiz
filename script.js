@@ -105,10 +105,10 @@ function printQuestion(q, qList) {
     $(".answer-button").on("click", function () {
         var isCorrect = checkAnswer(q, $(this).text());
         console.log(isCorrect);
-        if (isCorrect){
-            score++;
+        if (isCorrect) {
+            correctAnswer();
         } else {
-            score--;
+            incorrectAnswer();
         }
         setScore();
         nextQuestion(q, qList);
@@ -122,11 +122,21 @@ function checkAnswer(q, a) {
 }
 
 
-//
-function nextQuestion(q, qList){
+function incorrectAnswer() {
+    score--;
+    timeLeft -= 5;
+}
+
+function correctAnswer() {
+    score++;
+}
+
+/* Sets the next asked question to
+the next question in the list */
+function nextQuestion(q, qList) {
     let currentIndex = qList.indexOf(q) + 1;
-    console.log(currentIndex);
-    if(currentIndex >= qList.length){
+    // console.log(currentIndex);
+    if (currentIndex >= qList.length) {
         endQuiz();
     } else {
         printQuestion(qList[currentIndex], qList);
