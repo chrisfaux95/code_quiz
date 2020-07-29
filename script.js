@@ -110,7 +110,6 @@ function printQuestion(q, qList) {
         setScore();
         nextQuestion(q, qList);
     });
-    startTimer();
 }
 
 
@@ -160,6 +159,7 @@ function initializeQuiz(qList) {
     var currentQIndex = 0;
     //Prints the first question in the shuffled list
     printQuestion(mixedQList[currentQIndex], mixedQList);
+    startTimer();
 }
 
 
@@ -187,6 +187,7 @@ function createQuizElements() {
 // Ends the quiz and displays the score.
 function endQuiz() {
     $("main").empty();
+    score += timeLeft;
     // displayScore();
     clearInterval(interval);
     $("#final-score").text(score);
@@ -195,7 +196,7 @@ function endQuiz() {
 // Sets the score to display in the Header.
 function setScore() {
     $("#score").text("Score: " + score);
-    console.log("Current Score: " + score);
+    // console.log("Current Score: " + score);
 }
 
 
@@ -208,6 +209,14 @@ function saveScore(s) {
 // Get saved score from local storage.
 function getScore() {
     return localStorage.getItem("high_score");
+}
+
+
+function startTimer(){
+    timeLeft = maxTime;
+    interval = setInterval(function(){
+
+    }, 1000);
 }
 
 
