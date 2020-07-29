@@ -136,9 +136,10 @@ function nextQuestion(q, qList){
 }
 
 //creates the intial state for the quiz
-function initializeQuiz(qlist) {
+function initializeQuiz(qList) {
+    createQuizElements();
     //Make a copy of the list of questions and shuffle it.
-    var mixedQList = qlist;
+    var mixedQList = qList;
     shuffleArray(mixedQList);
     //Makes the question box visible
     // $("#question-box").removeClass("invisible")
@@ -155,7 +156,7 @@ function initializeQuiz(qlist) {
             currentQIndex = 0;
         }
         // console.log(currentQuestion);
-        printQuestion(questions[currentQIndex]);
+        printQuestion(questions[currentQIndex], mixedQList);
     });
 }
 
