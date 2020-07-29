@@ -122,9 +122,14 @@ function checkAnswer(q, a) {
 //Function for answer results
 function answerResults(correct) {
     if (correct) {
-        score++;
+        // If answer is correct
+        // Increase Score
+        score += 10;
     } else {
-        score--;
+        // If answer is incorrect
+        // Reduce score
+        score -= 10;
+        // Decrease remaining time
         timeLeft -= 5;
     }
 }
