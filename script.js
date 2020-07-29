@@ -171,6 +171,25 @@ function runQuiz(qList){
     //create inital state:
     initializeQuiz(qList);
 
+function createQuizElements(){
+    //select the main div and empty it
+    let mainDiv = $("main");
+    mainDiv.empty();
+    //add the question box to the main div
+    let questionBox = $("<div>")
+    questionBox.addClass("mx-auto questionBox");
+    mainDiv.append(questionBox);
+    //Add the header to the question box
+    let questionHeader = $("<h2>");
+    questionHeader.attr("id", "question");
+    questionBox.append(questionHeader);
+    questionBox.append($("<hr>"));
+    //add the questions list to the question box
+    let answersBox = $("<div>");
+    answersBox.attr("id","answers-list")
+    questionBox.append(answersBox);
+}
+
 }
 
 $("#quiz-start").on("click",function(){
