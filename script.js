@@ -221,6 +221,11 @@ function shuffleArray(array) {
     }
 }
 
+// Allows user to save score on button press.
+$("#score-button").on("click", function () { 
+    saveScore($("#initials").val());
+});
+
 // Allows user to run quiz on button press.
 $("#quiz-start").on("click", function () {
     initializeQuiz(questions);
