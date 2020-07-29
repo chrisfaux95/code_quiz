@@ -171,9 +171,13 @@ function shuffleArray(array) {
 }
 
 function runQuiz(qList){
-    var score = 0;
+    score = 0;
+    var time = maxTime;
     //create inital state:
     initializeQuiz(qList);
+    // startTimer(time);
+
+}
 
 function createQuizElements(){
     //select the main div and empty it
@@ -194,7 +198,10 @@ function createQuizElements(){
     questionBox.append(answersBox);
 }
 
+function endQuiz(){
+    $("main").empty();
 }
+
 
 $("#quiz-start").on("click",function(){
     runQuiz(questions);
