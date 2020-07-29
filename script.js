@@ -182,6 +182,19 @@ function setScore(){
     console.log("Current Score: " + score);
 }
 
+
+// Save score to local storage.
+function saveScore(s){
+    finalScore = s + ": " + score;
+    localStorage.setItem("high_score", finalScore);
+}
+
+// Get saved score from local storage.
+function getScore() {
+    return localStorage.getItem("high_score");
+}
+
+
 /* Function to shuffle the questions:
 From: https://stackoverflow.com/a/12646864/13871979 */
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
