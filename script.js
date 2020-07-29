@@ -73,6 +73,10 @@ const questions = [
 
 ]
 //setup variables:
+var score = 0;
+//time in seconds
+var maxTime = 100;
+
 
 //FUNCTIONS:
 /*
