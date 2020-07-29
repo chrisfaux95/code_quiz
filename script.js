@@ -106,11 +106,7 @@ function printQuestion(q, qList) {
     $(".answer-button").on("click", function () {
         var isCorrect = checkAnswer(q, $(this).text());
         // console.log(isCorrect);
-        if (isCorrect) {
-            correctAnswer();
-        } else {
-            incorrectAnswer();
-        }
+        answerResults(isCorrect);
         setScore();
         nextQuestion(q, qList);
     });
