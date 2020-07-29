@@ -140,11 +140,14 @@ function initializeQuiz(qlist) {
     //Make a copy of the list of questions and shuffle it.
     var mixedQList = qlist;
     shuffleArray(mixedQList);
-
-    $("#question-box").removeClass("invisible")
-
+    //Makes the question box visible
+    // $("#question-box").removeClass("invisible")
+    //sets the current index to 0
     var currentQIndex = 0;
-    printQuestion(mixedQList[currentQIndex]);
+    //prints the first question
+    printQuestion(mixedQList[currentQIndex], mixedQList);
+    //creates event listener on the next question button
+    //to cycle through the different questions.
     $("#next-question").on("click", function () {
         currentQIndex++;
         if (currentQIndex >= questions.length) {
