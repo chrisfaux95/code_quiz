@@ -79,6 +79,8 @@ var maxTime = 30;
 var timeLeft;
 var interval;
 
+var mainDiv = $("main");
+
 //FUNCTIONS:
 /*
 Prints the given question to the question box,
@@ -166,8 +168,8 @@ function initializeQuiz(qList) {
 // Creates the HTML elements for the quiz to display.
 function createQuizElements() {
     // Selects the main div and empty it
-    let mainDiv = $("main");
     mainDiv.empty();
+
     // Add the question box to the main div
     let questionBox = $("<div>")
     questionBox.addClass("mx-auto questionBox");
