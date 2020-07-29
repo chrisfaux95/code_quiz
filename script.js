@@ -176,6 +176,7 @@ function endQuiz(){
     displayScore();
 }
 
+// Sets the score to display in the Header.
 function setScore(){
     $("#score").text("Score: " + score);
     console.log("Current Score: " + score);
