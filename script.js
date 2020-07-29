@@ -83,13 +83,13 @@ var maxTime = 100;
 Prints the given question to the question box,
 and creates the buttons for the possible answers.
 */
-function printQuestion(q) {
+function printQuestion(q, qList) {
     //set the current question to the header
     let currentQ = $("#question")
     currentQ.text(q.question);
     //grab the list destination and empty it
-    var qList = $("#answers-list");
-    qList.empty();
+    var qListDiv = $("#answers-list");
+    qListDiv.empty();
     //create a copy of list of possible answers and randomize the order
     let answersList = [...q.answers];
     shuffleArray(answersList);
@@ -99,11 +99,19 @@ function printQuestion(q) {
         let currentAns = $("<button>");
         currentAns.text(ans);
         currentAns.addClass("btn btn-primary btn-block answer-button");
-        currentAns.appendTo(qList);
+        currentAns.appendTo(qListDiv);
     });
     //creates event listeners for each button with the ability to check their answer.
     $(".answer-button").on("click", function () {
-        console.log(checkAnswer(q, $(this).text()));
+        var isCorrect = checkAnswer(q, $(this).text());
+        console.log(isCorrect);
+        if (isCorrect){
+            score++;
+        } else {
+            score--;
+        }
+        console.log("Current Score: " + score);
+        nextQuestion(q, qList);
     });
 }
 //setting up initial question
@@ -115,6 +123,16 @@ function printQuestion(q) {
 //checks if the answer is correct
 function checkAnswer(q, a) {
     return q.answers[0] === a;
+}
+
+function nextQuestion(q, qList){
+    let currentIndex = qList.indexOf(q) + 1;
+    console.log(currentIndex);
+    if(currentIndex >= qList.length){
+        endQuiz();
+    } else {
+        printQuestion(qList[currentIndex], qList);
+    }
 }
 
 //creates the intial state for the quiz
