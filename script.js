@@ -110,7 +110,7 @@ function printQuestion(q, qList) {
         } else {
             score--;
         }
-        console.log("Current Score: " + score);
+        setScore();
         nextQuestion(q, qList);
     });
 }
@@ -198,8 +198,15 @@ function createQuizElements(){
     questionBox.append(answersBox);
 }
 
+// Ends the quiz and displays the score.
 function endQuiz(){
     $("main").empty();
+    displayScore();
+}
+
+function setScore(){
+    $("#score").text("Score: " + score);
+    console.log("Current Score: " + score);
 }
 
 
