@@ -189,6 +189,7 @@ function endQuiz() {
     $("main").empty();
     // displayScore();
     clearInterval(interval);
+    $("#final-score").text(score);
 }
 
 // Sets the score to display in the Header.
