@@ -161,7 +161,7 @@ function initializeQuiz(qList) {
 
 
 // Creates the HTML elements for the quiz to display.
-function createQuizElements(){
+function createQuizElements() {
     // Selects the main div and empty it
     let mainDiv = $("main");
     mainDiv.empty();
@@ -176,26 +176,27 @@ function createQuizElements(){
     questionBox.append($("<hr>"));
     // Add the questions list to the question box
     let answersBox = $("<div>");
-    answersBox.attr("id","answers-list")
+    answersBox.attr("id", "answers-list")
     questionBox.append(answersBox);
 }
 
 
 // Ends the quiz and displays the score.
-function endQuiz(){
+function endQuiz() {
     $("main").empty();
+    // displayScore();
     clearInterval(interval);
 }
 
 // Sets the score to display in the Header.
-function setScore(){
+function setScore() {
     $("#score").text("Score: " + score);
     console.log("Current Score: " + score);
 }
 
 
 // Save score to local storage.
-function saveScore(s){
+function saveScore(s) {
     finalScore = s + ": " + score;
     localStorage.setItem("high_score", finalScore);
 }
@@ -217,6 +218,6 @@ function shuffleArray(array) {
 }
 
 // Allows user to run quiz on button press.
-$("#quiz-start").on("click",function(){
+$("#quiz-start").on("click", function () {
     initializeQuiz(questions);
 });
