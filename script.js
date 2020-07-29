@@ -75,8 +75,9 @@ const questions = [
 // Setup variables:
 var score = 0;
 // Time in seconds
-var maxTime = 100;
-
+var maxTime = 30;
+var timeLeft;
+var interval;
 
 //FUNCTIONS:
 /*
@@ -183,7 +184,7 @@ function createQuizElements(){
 // Ends the quiz and displays the score.
 function endQuiz(){
     $("main").empty();
-    displayScore();
+    clearInterval(interval);
 }
 
 // Sets the score to display in the Header.
