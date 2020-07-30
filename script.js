@@ -235,6 +235,7 @@ function endQuiz() {
     // displayScore();
     clearInterval(interval);
     $("#final-score").text(score);
+    createScoreBox();
 }
 
 // Sets the score to display in the Header.
