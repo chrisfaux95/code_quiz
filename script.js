@@ -256,12 +256,26 @@ function getScore() {
     return localStorage.getItem("high_score");
 }
 
-
-function startTimer(){
+// Function to start the timer
+function startTimer() {
+    //Set time left to the max time.
     timeLeft = maxTime;
-    interval = setInterval(function(){
-
+    //create the timer
+    console.log("Time Started");
+    interval = setInterval(function () {
+        displayTimeLeft();
+        timeLeft--;
+        // console.log(timeLeft);
+        if(timeLeft < 0){
+            endQuiz();
+            console.log("Time Elapsed");
+        }
     }, 1000);
+}
+
+// Function to write timer to HTML;
+function displayTimeLeft() {
+    $("#timer").text("Seconds Remaining: "+timeLeft);
 }
 
 
