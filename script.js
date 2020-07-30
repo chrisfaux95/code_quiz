@@ -280,6 +280,7 @@ function startTimer() {
 
 // Function to write timer to HTML;
 function displayTimeLeft() {
+    $("#timer").text("Seconds Remaining: " + timeLeft);
 }
 
 function displayQuizStart() {
