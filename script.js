@@ -75,7 +75,7 @@ const questions = [
 // Setup variables:
 var score = 0;
 // Time in seconds
-var maxTime = 30;
+var maxTime = 10;
 var timeLeft;
 var interval;
 
@@ -119,6 +119,7 @@ function printQuestion(q, qList) {
 function checkAnswer(q, a) {
     return q.answers[0] === a;
 }
+
 
 //Function for answer results
 function answerResults(correct) {
@@ -240,6 +241,7 @@ function endQuiz() {
     createScoreBox();
 }
 
+
 // Sets the score to display in the Header.
 function setScore() {
     $("#score").text("Score: " + score);
@@ -253,10 +255,12 @@ function saveScore(s) {
     localStorage.setItem("high_score", finalScore);
 }
 
+
 // Get saved score from local storage.
 function getScore() {
     return localStorage.getItem("high_score");
 }
+
 
 // Function to start the timer
 function startTimer() {
@@ -291,10 +295,12 @@ function shuffleArray(array) {
     }
 }
 
+
 // Allows user to save score on button press.
-$("#score-button").on("click", function () { 
+$("#score-button").on("click", function () {
     saveScore($("#initials").val());
 });
+
 
 // Allows user to run quiz on button press.
 $("#quiz-start").on("click", function () {
