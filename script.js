@@ -75,7 +75,7 @@ const questions = [
 // Setup variables:
 var score = 0;
 // Time in seconds
-var maxTime = 10;
+var maxTime = 60;
 var timeLeft;
 var interval;
 var mainDiv = $("main");
@@ -197,7 +197,7 @@ function createQuizElements() {
 
 /* Function to create the HTML elements
 for The High Score Input */
-function createScoreBox(){
+function createScoreBox() {
     //Create the Div containing the score inputs
     let scoreDiv = $("<div>");
     scoreDiv.addClass("mx-auto");
@@ -222,7 +222,7 @@ function createScoreBox(){
     scoreButton.attr("id", "score-button");
     scoreButton.addClass("btn btn-dark");
     scoreButton.text("Submit Score");
-    scoreButton.on("click", function(){
+    scoreButton.on("click", function () {
         saveScore(scoreInput.val());
     });
     scoreButton.appendTo(scoreDiv);
@@ -271,7 +271,7 @@ function startTimer() {
         displayTimeLeft();
         timeLeft--;
         // console.log(timeLeft);
-        if(timeLeft < 0){
+        if (timeLeft < 0) {
             endQuiz();
             console.log("Time Elapsed");
         }
@@ -331,15 +331,3 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
-
-// Allows user to save score on button press.
-$("#score-button").on("click", function () {
-    saveScore($("#initials").val());
-});
-
-
-// Allows user to run quiz on button press.
-$("#quiz-start").on("click", function () {
-    initializeQuiz(questions);
-});
