@@ -78,7 +78,6 @@ var score = 0;
 var maxTime = 10;
 var timeLeft;
 var interval;
-
 var mainDiv = $("main");
 
 //FUNCTIONS:
