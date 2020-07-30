@@ -193,6 +193,41 @@ function createQuizElements() {
 }
 
 
+/* Function to create the HTML elements
+for The High Score Input */
+function createScoreBox(){
+    //Create the Div containing the score inputs
+    let scoreDiv = $("<div>");
+    scoreDiv.addClass("mx-auto");
+    scoreDiv.attr("id", "score-box");
+    scoreDiv.appendTo(mainDiv);
+    //create the header
+    let scoreHeader = $("<h2>");
+    scoreHeader.html("You Scored " + score + " points!");
+    scoreHeader.appendTo(scoreDiv);
+    //create the paragraph
+    let scoreP = $("<p>");
+    scoreP.text("Would you like to save your score?");
+    scoreP.appendTo(scoreDiv);
+    //create the score input
+    let scoreInput = $("<input>");
+    scoreInput.attr("id", "initials");
+    scoreInput.attr("name", "initials");
+    scoreInput.attr("type", "text");
+    scoreInput.appendTo(scoreDiv);
+    //create the submit button
+    let scoreButton = $("<button>");
+    scoreButton.attr("id", "score-button");
+    scoreButton.addClass("btn btn-dark");
+    scoreButton.text("Submit Score");
+    scoreButton.on("click", function(){
+        saveScore(scoreInput.val());
+    });
+    scoreButton.appendTo(scoreDiv);
+}
+
+
+
 // Ends the quiz and displays the score.
 function endQuiz() {
     $("main").empty();
