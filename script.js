@@ -109,7 +109,7 @@ function printQuestion(q, qList) {
         var isCorrect = checkAnswer(q, $(this).text());
         // console.log(isCorrect);
         answerResults(isCorrect);
-        setScore();
+        // setScore();
         nextQuestion(q, qList);
     });
 }
