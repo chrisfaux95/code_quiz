@@ -183,6 +183,13 @@ function createQuizElements() {
     let answersBox = $("<div>");
     answersBox.attr("id", "answers-list")
     questionBox.append(answersBox);
+
+    //Add the timer to the question box
+    questionBox.append($("<hr>"));
+    let timerHeader = $("<h3>");
+    timerHeader.attr("id", "timer");
+    questionBox.append(timerHeader);
+
 }
 
 
