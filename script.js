@@ -280,8 +280,45 @@ function startTimer() {
 
 // Function to write timer to HTML;
 function displayTimeLeft() {
-    $("#timer").text("Seconds Remaining: "+timeLeft);
 }
+
+function displayQuizStart() {
+    mainDiv.empty();
+    clearInterval(interval);
+
+    let startBtn = $("<button>");
+    startBtn.attr("id", "quiz-start");
+    startBtn.addClass("btn btn-info btn-block");
+    startBtn.text("Start Quiz");
+    mainDiv.append(startBtn);
+
+    startBtn.on("click", function () {
+        initializeQuiz(questions);
+    });
+}
+
+function displayHighScore() {
+    mainDiv.empty();
+    clearInterval(interval);
+
+    let scoreDiv = $("<div>");
+    scoreDiv.addClass("mx-auto text-center");
+    scoreDiv.appendTo(mainDiv);
+
+    let scoreHeader = $("<h2>");
+    scoreHeader.text("High Score");
+    scoreHeader.appendTo(scoreDiv);
+
+    let scoreP = $("<p>");
+    scoreP.text(getScore());
+    scoreP.appendTo(scoreDiv);
+}
+
+
+//Code for Navbar Buttons to function
+$("#setup-quiz").on("click", displayQuizStart);
+$("#high-scores").on("click", displayHighScore);
+
 
 
 /* Function to shuffle the questions:
