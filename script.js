@@ -172,7 +172,7 @@ function createQuizElements() {
 
     // Add the question box to the main div
     let questionBox = $("<div>")
-    questionBox.addClass("mx-auto questionBox");
+    questionBox.addClass("mx-auto questionBox text-center");
     mainDiv.append(questionBox);
     // Add the header to the question box
     let questionHeader = $("<h2>");
