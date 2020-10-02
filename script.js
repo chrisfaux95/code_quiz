@@ -103,14 +103,7 @@ function printQuestion(q, qList) {
         currentAns.addClass("btn btn-primary btn-block answer-button");
         currentAns.appendTo(qListDiv);
     });
-    // Creates event listeners for each button with the ability to check their answer.
-    $(".answer-button").on("click", function () {
-        var isCorrect = checkAnswer(q, $(this).text());
-        // console.log(isCorrect);
-        answerResults(isCorrect);
-        // setScore();
-        nextQuestion(q, qList);
-    });
+    q = qCurrent;
 }
 
 
@@ -222,9 +215,6 @@ function createScoreBox() {
     scoreButton.attr("id", "score-button");
     scoreButton.addClass("btn btn-dark");
     scoreButton.text("Submit Score");
-    scoreButton.on("click", function () {
-        saveScore(scoreInput.val());
-    });
     scoreButton.appendTo(scoreDiv);
 }
 
@@ -292,10 +282,6 @@ function displayQuizStart() {
     startBtn.addClass("btn btn-info btn-block");
     startBtn.text("Start Quiz");
     mainDiv.append(startBtn);
-
-    startBtn.on("click", function () {
-        initializeQuiz(questions);
-    });
 }
 
 function displayHighScore() {
