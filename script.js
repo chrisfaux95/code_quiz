@@ -316,9 +316,7 @@ function displayHighScore() {
 }
 
 
-//Code for Navbar Buttons to function
-$("#setup-quiz").on("click", displayQuizStart);
-$("#high-scores").on("click", displayHighScore);
+}
 
 
 
@@ -331,3 +329,21 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+$(document).ready(() => {
+    $("#setup-quiz").on("click", displayQuizStart);
+    $("#high-scores").on("click", displayHighScore);
+    $(document).on("click", "#quiz-start", () => initializeQuiz(questions));
+    $(document).on("click", "#score-button", () => {
+        let scoreInput = $("#initials");
+        saveScore(scoreInput.val());
+        displayHighScore();
+    })
+    $(document).on("click", ".answer-button", function () {
+        var isCorrect = checkAnswer(q, $(this).text());
+        // console.log(isCorrect);
+        answerResults(isCorrect);
+        // setScore();
+        nextQuestion(q, mixedQList);
+    });
+})
