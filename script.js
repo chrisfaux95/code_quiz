@@ -74,6 +74,8 @@ const questions = [
 ]
 // Setup variables:
 var score = 0;
+var q;
+var mixedQList;
 // Time in seconds
 var maxTime = 60;
 var timeLeft;
@@ -85,15 +87,15 @@ var mainDiv = $("main");
 Prints the given question to the question box,
 and creates the buttons for the possible answers.
 */
-function printQuestion(q, qList) {
+function printQuestion(qCurrent, qList) {
     // Set the current question to the header
     let currentQ = $("#question")
-    currentQ.text(q.question);
+    currentQ.text(qCurrent.question);
     // Grab the list destination and empty it
     var qListDiv = $("#answers-list");
     qListDiv.empty();
     // Create a copy of list of possible answers and randomize the order
-    let answersList = [...q.answers];
+    let answersList = [...qCurrent.answers];
     shuffleArray(answersList);
     /* Creates a button for each answer with
     with bootstrap classes and appends it to the answers list*/
@@ -108,8 +110,8 @@ function printQuestion(q, qList) {
 
 
 // Checks if the answer is correct
-function checkAnswer(q, a) {
-    return q.answers[0] === a;
+function checkAnswer(qCurrent, a) {
+    return qCurrent.answers[0] === a;
 }
 
 
@@ -131,8 +133,8 @@ function answerResults(correct) {
 
 /* Sets the next asked question to
 the next question in the list */
-function nextQuestion(q, qList) {
-    let currentIndex = qList.indexOf(q) + 1;
+function nextQuestion(qCurrent, qList) {
+    let currentIndex = qList.indexOf(qCurrent) + 1;
     // console.log(currentIndex);
     if (currentIndex >= qList.length) {
         endQuiz();
@@ -148,7 +150,7 @@ function initializeQuiz(qList) {
     //creates the HTML elements for the quiz.
     createQuizElements();
     //Make a copy of the list of questions and shuffle it.
-    var mixedQList = qList;
+    mixedQList = [...qList];
     shuffleArray(mixedQList);
     //sets the current index to 0
     var currentQIndex = 0;
