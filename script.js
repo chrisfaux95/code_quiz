@@ -242,14 +242,26 @@ function setScore() {
 
 // Save score to local storage.
 function saveScore(s) {
-    finalScore = s + ": " + score;
-    localStorage.setItem("high_score", finalScore);
+    finalScore = { name: s, score: score };
+    let sl = getScore();
+    let slist
+    if (sl) {
+        slist = [...sl, finalScore];
+        slist.sort((a, b) => a.score - b.score);
+    } else {
+        slist = [finalScore];
+    }
+    slStringed = JSON.stringify(slist);
+
+    localStorage.setItem("high_scores", slStringed);
 }
 
 
 // Get saved score from local storage.
 function getScore() {
-    return localStorage.getItem("high_score");
+    let l = localStorage.getItem("high_scores");
+    let lParsed = JSON.parse(l);
+    return lParsed;
 }
 
 
@@ -298,14 +310,36 @@ function displayHighScore() {
     scoreHeader.text("High Score");
     scoreHeader.appendTo(scoreDiv);
 
-    let scoreP = $("<p>");
-    scoreP.text(getScore());
-    scoreP.appendTo(scoreDiv);
+    // let scoreP = $("<p>");
+    // scoreP.text(JSON.stringify(getScore()));
+    // scoreP.appendTo(scoreDiv);
+
+    scoreDiv.append(scoreTable(getScore()))
+    
+
 }
 
-
+function scoreTable(scores) {
+    let sTable = $("<table>").addClass("table")
+    let thead = $("<thead>");
+    let tr = $("<tr>");
+    let headerArr = ["Score", "Name"]
+    headerArr.forEach(e => {
+        let th = $("<th>").attr("scope", "col").text(e);
+        tr.append(th);
+    });
+    thead.append(tr);
+    let tbody = $("<tbody>");
+    scores.forEach(e => {
+        let tRow = $("<tr>")
+        let scoreT = $("<td>").text(e.score);
+        let nameT = $("<td>").text(e.name);
+        tRow.append(scoreT, nameT);
+        tbody.append(tRow);
+    });
+    sTable.append(thead, tbody);
+    return sTable;
 }
-
 
 
 /* Function to shuffle the questions:
